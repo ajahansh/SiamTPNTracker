@@ -30,7 +30,7 @@ def calc_iou_overlap(pred_bb, anno_bb):
     br = torch.min(pred_bb[:, :2] + pred_bb[:, 2:] - 1.0, anno_bb[:, :2] + anno_bb[:, 2:] - 1.0)
     sz = (br - tl + 1.0).clamp(0)
 
-    # Area
+    # Area2
     intersection = sz.prod(dim=1)
     union = pred_bb[:, 2:].prod(dim=1) + anno_bb[:, 2:].prod(dim=1) - intersection
 
